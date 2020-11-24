@@ -1,5 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+
+const Edit = styled.div`
+  color: red;
+`
 
 function App() {
   return (
