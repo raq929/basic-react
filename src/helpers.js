@@ -3,10 +3,13 @@ export const isBidInvalid = (bids, currentBid) => {
 }
 
 export const getClosestBid = (price, bids) => {
-  /** This function assumes that all bids are valid bids */
-  let closestBid;
+  /**
+   * This function assumes that all bids are valid bids (lower than the price)
+   *
+   * */
+  let closestBid = 0;
   bids.forEach((bid) => {
-    if((price - bid) < closestBid) {
+    if((price - bid) < price - closestBid) {
       closestBid = bid
     }
   })

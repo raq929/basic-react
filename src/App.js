@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+
 import { useState } from 'react';
 import './App.css';
 import BidInput from './BidInput';
+import Button from './Button';
 import GameStatus from './GameStatus';
 import ItemDisplay from './ItemDisplay';
-// import styled from 'styled-components';
 
 const items = [
   {
@@ -65,7 +65,7 @@ function App() {
   const [ bids, setBids ] = useState({});
   const [ currentItem, setCurrentItem] = useState(0)
   const isOver = currentPlayer > players.length - 1;
-  const whosPlaying = currentPlayer < players.length ? players[currentPlayer] : 'Game over'
+
 
   const resetGame = () => {
     setBids({})
@@ -79,14 +79,23 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>The Price is Right</h1>
-      <div>Who's playing: {whosPlaying}</div>
-      <ItemDisplay item={items[currentItem]} />
-      <BidInput currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} setBids={setBids} disabled={isOver} players={players} bids={bids} />
-      {isOver && <GameStatus players={players} bids={bids} item={items[0]} />}
-      <button onClick={resetGame}>New Item!</button>
-
+    <div className='content-wrapper'>
+      <h1>The Price is Right!</h1>
+      {!isOver && <div className="player">Who's playing: <span className="playerName">{players[currentPlayer]}</span></div>}
+      <main className='mainGame'>
+        <ItemDisplay item={items[currentItem]} />
+        <BidInput
+          className="bidDisplay"
+          currentPlayer={currentPlayer}
+          setCurrentPlayer={setCurrentPlayer}
+          setBids={setBids}
+          disabled={isOver}
+          players={players}
+          bids={bids}
+        />
+      </main>
+      {isOver && <GameStatus players={players} bids={bids} item={items[currentItem]} />}
+      <Button onClick={resetGame}>New Item!</Button>
     </div>
   );
 }

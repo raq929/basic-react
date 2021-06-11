@@ -1,38 +1,23 @@
-.App {
-  text-align: center;
+.content-wrapper {
+  margin: 2em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.player {
+  line-height: 2;
+  font-size: 24px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.playerName {
+  font-weight: 700;
+  color: cornflowerblue;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mainGame {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: space-between;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.bidDisplay {
+  margin-left: 4em;
+  align-self: center;
 }
